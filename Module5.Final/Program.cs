@@ -10,10 +10,10 @@ PrintPerson(Person());
     int _countOfPets;
     int _countOfColor;
 
-    Console.WriteLine("Введите ваше имя");
+    Console.WriteLine("Введите ваше имя:");
     User._name = Console.ReadLine();
 
-    Console.WriteLine("Введите вашу фамилию");
+    Console.WriteLine("Введите вашу фамилию:");
     User._surName = Console.ReadLine();
 
     User._age = Check("Введите возраст:");

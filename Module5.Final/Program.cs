@@ -23,13 +23,12 @@ PrintPerson(Person());
     do
     {
         Console.WriteLine("У вас есть питомцы? (Да,Нет)");
-        _presenceOfPets = Console.ReadLine();
+        _presenceOfPets = Console.ReadLine().ToLower();
         switch (_presenceOfPets.ToLower())
         {
             case "да":
                 _countOfPets = Check("Введите количество питомцев:");
-                Console.WriteLine("Введите клички питомцев, через Enter:");
-                User._nameOfPets = GetArrayNameOf(_countOfPets);
+                User._nameOfPets = GetArrayNameOf(_countOfPets, "Введите клички питомцев, через Enter:");
                 break;
             case "нет":
                 User._nameOfPets = ["Питомцев нет"];
@@ -39,40 +38,40 @@ PrintPerson(Person());
                 Console.WriteLine("Нужно ввести \"Да\" или \"Нет\"");
                 break;
         }
-    } while (!(_presenceOfPets.ToLower() == "да") && !(_presenceOfPets.ToLower() == "нет"));
+    } while (!(_presenceOfPets == "да") && !(_presenceOfPets == "нет"));
 
 
 
     //Получаем количество цветов
     _countOfColor = Check("Введите количество любимых цветов(красный, желтый и т.д.):");
-    Console.WriteLine("Введите название цветов, через Enter:");
+   
 
     //Присваиваем массив Color
-    User._nameOfColor = GetArrayNameOf(_countOfColor);
+    User._nameOfColor = GetArrayNameOf(_countOfColor, "Введите название цветов, через Enter:");
 
 
 
     int Check(string text)//Проверяет на правильность ввода и введено ли число <= 0
     {
-        Console.WriteLine(text);
-        if (!int.TryParse(Console.ReadLine(), out int value))
+        int value;
+        while (true)
         {
-            Console.WriteLine("Введено некорректное значение. Введите целочисленное значение");
-            Check(text);
+            Console.WriteLine(text);
+            if (int.TryParse(Console.ReadLine(), out value) && value > 0)
+            {
+                return value;
+            }
+            Console.WriteLine("Введено некорректное значение. Введите положительное целочисленное значение.");
         }
-
-        if (value <= 0)
-        {
-            Console.WriteLine("Значение должно быть больше 0");
-            Check(text);
-        }
-        return value;
     }
 
 
-    string[] GetArrayNameOf(int _countOf)//Создание массива
+    string[] GetArrayNameOf(int _countOf, string text)//Создание массива
     {
         string[] arr = new string[_countOf];
+
+        Console.WriteLine(text);
+
         for (int i = 0; i < arr.Length; i++)
         {
             arr[i] = Console.ReadLine();

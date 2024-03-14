@@ -46,6 +46,8 @@ PrintPerson(Person());
     //Получаем количество цветов
     _countOfColor = Check("Введите количество любимых цветов(красный, желтый и т.д.)");
     Console.WriteLine("Введите название цветов, через Enter:");
+    
+    //Присваиваем массив Color
     User._nameOfColor = GetArrayNameOf(_countOfColor);
 
 

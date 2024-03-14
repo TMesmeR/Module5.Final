@@ -19,17 +19,29 @@ PrintPerson(Person());
     User._age = Check("Введите возраст:");
 
 
-    //Получаем количество питомцев, при наличии
-    Console.WriteLine("У вас есть питомцы? (Да,Нет)");
-    _presenceOfPets = Console.ReadLine();
-    
-    if (_presenceOfPets.ToLower().Contains("да"))
+    //Получаем количество питомцев, при наличии  
+    do
     {
-        _countOfPets = Check("Введите количество питомцев");
-        Console.WriteLine("Введите клички питомцев, через Enter:");
-        User._nameOfPets = GetArrayNameOf(_countOfPets);
-    }
-     else  User._nameOfPets = [ "Питомцев нет"];
+        Console.WriteLine("У вас есть питомцы? (Да,Нет)");
+        _presenceOfPets = Console.ReadLine();
+        switch (_presenceOfPets.ToLower())
+        {
+            case "да":
+                _countOfPets = Check("Введите количество питомцев");
+                Console.WriteLine("Введите клички питомцев, через Enter:");
+                User._nameOfPets = GetArrayNameOf(_countOfPets);
+                break;
+            case "нет":
+                User._nameOfPets = ["Питомцев нет"];
+                break;
+            default:
+                User._nameOfPets = [];
+                Console.WriteLine("Нужно ввести \"Да\" или \"Нет\"");
+                break;
+        }
+    } while (!_presenceOfPets.ToLower().Contains("да") && !_presenceOfPets.ToLower().Contains("нет"));
+
+  
 
     //Получаем количество цветов
     _countOfColor = Check("Введите количество любимых цветов(красный, желтый и т.д.)");

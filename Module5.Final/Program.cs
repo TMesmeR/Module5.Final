@@ -2,9 +2,9 @@
 PrintPerson(Person());
 
 ///Метод возвращающий кортеж 
-(string,string,int, string[], string[]) Person()
+(string, string, int, string[], string[]) Person()
 {
-    (string _name,string _surName,int _age, string[] _nameOfPets, string[] _nameOfColor) User;
+    (string _name, string _surName, int _age, string[] _nameOfPets, string[] _nameOfColor) User;
 
     string _presenceOfPets;
     int _countOfPets;
@@ -39,14 +39,14 @@ PrintPerson(Person());
                 Console.WriteLine("Нужно ввести \"Да\" или \"Нет\"");
                 break;
         }
-    } while (!_presenceOfPets.ToLower().Contains("да") && !_presenceOfPets.ToLower().Contains("нет"));
+    } while (!(_presenceOfPets.ToLower() == "да") && !(_presenceOfPets.ToLower() == "нет"));
 
-  
+
 
     //Получаем количество цветов
     _countOfColor = Check("Введите количество любимых цветов(красный, желтый и т.д.)");
     Console.WriteLine("Введите название цветов, через Enter:");
-    
+
     //Присваиваем массив Color
     User._nameOfColor = GetArrayNameOf(_countOfColor);
 
@@ -55,7 +55,7 @@ PrintPerson(Person());
     int Check(string text)//Проверяет на правильность ввода и введено ли число <= 0
     {
         Console.WriteLine(text);
-        if(!int.TryParse(Console.ReadLine(), out int value))
+        if (!int.TryParse(Console.ReadLine(), out int value))
         {
             Console.WriteLine("Введено некорректное значение. Введите целочисленное значение");
             Check(text);
@@ -72,14 +72,13 @@ PrintPerson(Person());
 
     string[] GetArrayNameOf(int _countOf)//Создание массива
     {
-        string [] arr = new string[_countOf];
-        for (int i =0; i<arr.Length;i++)
+        string[] arr = new string[_countOf];
+        for (int i = 0; i < arr.Length; i++)
         {
             arr[i] = Console.ReadLine();
         }
         return arr;
     }
-
 
     return User;
 }
@@ -107,6 +106,4 @@ void PrintPerson((string, string, int, string[], string[]) person)
     {
         Console.WriteLine(color);
     }
-
-
 }

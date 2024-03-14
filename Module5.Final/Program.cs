@@ -27,7 +27,7 @@ PrintPerson(Person());
         switch (_presenceOfPets.ToLower())
         {
             case "да":
-                _countOfPets = Check("Введите количество питомцев");
+                _countOfPets = Check("Введите количество питомцев:");
                 Console.WriteLine("Введите клички питомцев, через Enter:");
                 User._nameOfPets = GetArrayNameOf(_countOfPets);
                 break;
@@ -44,7 +44,7 @@ PrintPerson(Person());
 
 
     //Получаем количество цветов
-    _countOfColor = Check("Введите количество любимых цветов(красный, желтый и т.д.)");
+    _countOfColor = Check("Введите количество любимых цветов(красный, желтый и т.д.):");
     Console.WriteLine("Введите название цветов, через Enter:");
 
     //Присваиваем массив Color

@@ -86,7 +86,7 @@ PrintPerson(Person());
 //Метод выводящий информацию о жертве
 void PrintPerson((string, string, int, string[], string[]) person)
 {
-    Console.WriteLine("....................................................................");
+    Console.Clear();
 
     Console.WriteLine($"Ваше имя: {person.Item1}");
     Console.WriteLine($"Ваше Фамилия: {person.Item2}");

@@ -34,7 +34,7 @@ PrintPerson(Person());
                 User._nameOfPets = ["Питомцев нет"];
                 break;
             default:
-                User._nameOfPets = [];
+                User._nameOfPets = null;
                 Console.WriteLine("Нужно ввести \"Да\" или \"Нет\"");
                 break;
         }
@@ -53,11 +53,11 @@ PrintPerson(Person());
 
     int Check(string text)//Проверяет на правильность ввода и введено ли число <= 0
     {
-        int value;
+        
         while (true)
         {
             Console.WriteLine(text);
-            if (int.TryParse(Console.ReadLine(), out value) && value > 0)
+            if (int.TryParse(Console.ReadLine(), out int value) && value > 0)
             {
                 return value;
             }

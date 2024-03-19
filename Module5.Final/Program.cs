@@ -93,16 +93,10 @@ void PrintPerson((string, string, int, string[], string[]) person)
     Console.WriteLine($"Ваш возраст: {person.Item3}");
     Console.WriteLine("....................................................................");
 
-    Console.WriteLine("Имена ваших питомцев:");
-    foreach (string name in person.Item4)
-    {
-        Console.WriteLine(name);
-    }
+    Console.WriteLine($"Имена ваших питомцев: {string.Join(", ",person.Item4)}");
+    
     Console.WriteLine("....................................................................");
 
-    Console.WriteLine("Ваши любимые цвета:");
-    foreach (string color in person.Item5)
-    {
-        Console.WriteLine(color);
-    }
+    Console.WriteLine($"Ваши любимые цвета: {string.Join(", ", person.Item5)}");
+    
 }
